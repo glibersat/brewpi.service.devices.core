@@ -7,8 +7,7 @@ class Valve(Actuator):
     """
     An abstract Valve
     """
-    class Meta:
-        abstract = True
+    pass
 
 class ManualValve(Valve):
     """
