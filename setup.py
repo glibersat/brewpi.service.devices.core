@@ -17,23 +17,19 @@ setup(
     namespace_packages = ['devices.core'],
     entry_points = {
         'controller.device.model': [
-            'ds2413 = devices.core.actuator.models:DS2413Actuator'
-            'manual_valve = devices.core.actuator.models:ManualValve'
-            'motorized_valve = devices.core.actuator.models:MotorizedValve'
+            'ds2413 = devices.core.actuator.models:DS2413Actuator',
+            'motorized_valve = devices.core.actuator.models:MotorizedValve',
+            'temp_sensor = devices.core.sensor:TemperatureSensor',
         ],
         'controller.device.admin': [
             'ds2413 = devices.core.actuator.admin:DS2413ActuatorAdmin',
-            'manual_valve = devices.core.actuator.admin:ManualValveAdmin',
             'motorized_valve = devices.core.actuator.admin:MotorizedValveAdmin',
             'temp_sensor = devices.core.sensor.admin:TemperatureSensorAdmin',
-            'humidity_sensor = devices.core.sensor.admin:HumiditySensorAdmin',
         ],
         'controller.device.inline_admin': [
             'ds2413 = devices.core.actuator.admin:DS2413ActuatorInline',
-            'manual_valve = devices.core.actuator.admin:ManualValveInline',
             'motorized_valve = devices.core.actuator.admin:MotorizedValveInline',
             'temp_sensor = devices.core.sensor.admin:TemperatureSensorInline',
-            'humidity_sensor = devices.core.sensor.admin:HumiditySensorInline',
         ]
     }
 )

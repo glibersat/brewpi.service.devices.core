@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils.translation import ugettext as _
 
-from device.models import PWMActuator, Actuator
+from device.models import PWMActuatorMixin, ElectronicDeviceMixin, Actuator
 
 class Valve(Actuator):
     """
@@ -15,14 +15,14 @@ class ManualValve(Valve):
     """
     pass
 
-class MotorizedValve(Valve):
+class MotorizedValve(Valve, ElectronicDeviceMixin):
     """
     A 1-wire, motorized Valve
     """
     pass
 
 
-class DS2413Actuator(PWMActuator):
+class DS2413Actuator(Actuator, ElectronicDeviceMixin, PWMActuatorMixin):
     """
     1-wire, 2 canals PWM Actuator
     """

@@ -1,14 +1,8 @@
 from django.db import models
 from django.utils.translation import ugettext as _
 
-from device.models import Sensor
+from device.models import Sensor, ElectronicDeviceMixin
 
-class TemperatureSensor(Sensor):
+class TemperatureSensor(Sensor, ElectronicDeviceMixin):
     value = models.FloatField(null=True)
 
-
-class HumiditySensor(Sensor):
-    """
-    Senses humidity in the air
-    """
-    value = models.FloatField(null=True)
