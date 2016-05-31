@@ -1,28 +1,30 @@
 from django.db import models
 from django.utils.translation import ugettext as _
 
-from device.models import PWMActuatorMixin, ElectronicDeviceMixin, Actuator
+from device.models import PWMActuator, ManualActuator, Actuator
 
-class Valve(Actuator):
+class ValveMixin(models.Model):
     """
     An abstract Valve
     """
-    pass
+    class Meta:
+        abstract = True
 
-class ManualValve(Valve):
+
+class ManualValve(ManualActuator, ValveMixin):
     """
     A manual valve, toggled by the user
     """
     pass
 
-class MotorizedValve(Valve, ElectronicDeviceMixin):
+class MotorizedValve(Actuator, ValveMixin):
     """
     A 1-wire, motorized Valve
     """
     pass
 
 
-class DS2413Actuator(Actuator, ElectronicDeviceMixin, PWMActuatorMixin):
+class DS2413Actuator(PWMActuator):
     """
     1-wire, 2 canals PWM Actuator
     """
