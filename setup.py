@@ -19,7 +19,7 @@ setup(
         'controller.device.model': [
             'ds2413 = devices.core.actuator.models:DS2413Actuator',
             'motorized_valve = devices.core.actuator.models:MotorizedValve',
-            'temp_sensor = devices.core.sensor:TemperatureSensor',
+            'temp_sensor = devices.core.sensor.models:TemperatureSensor',
         ],
         'controller.device.admin': [
             'ds2413 = devices.core.actuator.admin:DS2413ActuatorAdmin',
